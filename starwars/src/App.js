@@ -1,18 +1,21 @@
 import React from 'react';
+import StarWarsCard from './components/starwars-card/starwars-card.component';
 import './App.css';
+import './components/StarWars.sass';
 
-const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+let cards = [];
+for (let i = 1; i < 11; i++) {
+  cards.push(<StarWarsCard key={i} personId={i} />)
+}
 
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+const App = ({ classes }) => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-    </div>
+      <div className='cards-container'>
+        {cards}
+      </div>
+    </div >
   );
 }
 
